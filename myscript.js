@@ -47,9 +47,9 @@ function moveUrl(url){
 $(function () {
   // URLを判定
   var href_str = window.location.href;
-  var res = href_str.match(/debug\/Login\/Index/gi);
+  var res = href_str.match(/pokevision.com/);
   // 違ったらしない
-  //if(res == null) return;
+  if(res == null) return;
 
   // デバッグツールの人を選ぶ
   var changeUser = function(num){
@@ -77,17 +77,14 @@ $(function () {
       "1":"フシギダネ",
   };
 
+  // プルダウン内
   var $el = $('.dropdown-menu.inner');
 
-  $el.html(' ');
-  // 独自追加
-  $.each(newOptions, function(key, value) {
-      //$el.append($("<option></option>")
-      //.attr("value", value).text(key));
-      $el.append($("<li data-original-index=\"" + key + "\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"background-image:url('//ugc.pokevision.com/images/pokemon/" + key + ".png');\" data-tokens=\"null\"><span class=\"text\">" + value + "</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li>"));
+  $.each($el.children(), function(index, value) {
+    // textクラスを書き換え
+    $(value).find(".text").html("a");
   });
 
-  // Redmine系
   // いいプルダウン.
   var pulldown = $('#issue_assigned_to_id');
 
