@@ -49,7 +49,7 @@ $(function () {
   var href_str = window.location.href;
   var res = href_str.match(/debug\/Login\/Index/gi);
   // 違ったらしない
-  if(res == null) return;
+  //if(res == null) return;
 
   // デバッグツールの人を選ぶ
   var changeUser = function(num){
@@ -74,6 +74,22 @@ $(function () {
   }).appendTo(".center-align-text");
 
   //var msg = $('$msg');
+  var newOptions = {
+      "Option 1":"option-1",
+      "Option 2":"option-2"
+  };
+
+  var $el = $('filters');
+
+  $el.html(' ');
+  $.each(newOptions, function(key, value) {
+      $el.append($("<option></option>")
+      .attr("value", value).text(key));
+  });
+
+  var $drop = $('.dropdown-menu.inner');
+  // 独自追加
+  $drop.append($("<li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"background-image:url('//ugc.pokevision.com/images/pokemon/63.png');\" data-tokens=\"null\"><span class=\"text\">Abra</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li>"));
 
   // Redmine系
   // いいプルダウン.
