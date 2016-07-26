@@ -73,23 +73,19 @@ $(function () {
     }
   }).appendTo(".center-align-text");
 
-  //var msg = $('$msg');
   var newOptions = {
-      "Option 1":"option-1",
-      "Option 2":"option-2"
+      "1":"フシギダネ",
   };
 
-  var $el = $('filters');
+  var $el = $('.dropdown-menu.inner');
 
   $el.html(' ');
-  $.each(newOptions, function(key, value) {
-      $el.append($("<option></option>")
-      .attr("value", value).text(key));
-  });
-
-  var $drop = $('.dropdown-menu.inner');
   // 独自追加
-  $drop.append($("<li data-original-index=\"0\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"background-image:url('//ugc.pokevision.com/images/pokemon/63.png');\" data-tokens=\"null\"><span class=\"text\">Abra</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li>"));
+  $.each(newOptions, function(key, value) {
+      //$el.append($("<option></option>")
+      //.attr("value", value).text(key));
+      $el.append($("<li data-original-index=\"" + key + "\" class=\"selected\"><a tabindex=\"0\" class=\"\" style=\"background-image:url('//ugc.pokevision.com/images/pokemon/" + key + ".png');\" data-tokens=\"null\"><span class=\"text\">" + value + "</span><span class=\"glyphicon glyphicon-ok check-mark\"></span></a></li>"));
+  });
 
   // Redmine系
   // いいプルダウン.
