@@ -1,0 +1,36 @@
+{
+  "name": "ぽけびじょん",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": { "48": "icon48.png",
+            "128": "icon128.png" },
+  "description": "PokéVisionを日本語で使うぜ。",
+  "browser_action" : {
+    // アイコン
+    "default_icon": "icon19.png",
+    // アイコン押せばポップアップだ
+    "default_popup" : "popup.html"
+  },
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "content_scripts": [
+      {
+          // 特定のWebサイト
+          "matches": [
+            "https://pokevision.com/*"
+          ],
+          "css": ["stylesheet/chosen.min.css"],
+          "js": [
+            "js/jquery-2.1.4.min.js",
+            "myscript.js",
+            "js/chosen.jquery.min.js"
+          ],
+          "web_accessible_resources": [
+            "stylesheet/chosen.min.css",
+            "js/jquery-2.1.4.min.js",
+            "js/chosen.jquery.min.js"
+          ]
+      }
+  ]
+}
