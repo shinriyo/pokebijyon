@@ -36,8 +36,8 @@ $(function () {
   if(res == null) return;
 
   // アフィリエイト
-  var amazon = "<iframe src=\"http://rcm-fe.amazon-adsystem.com/e/cm?t=noctushinrsdi-22&o=9&p=8&l=as1&asins=B01IIGUB4M&ref=tf_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=000000&bg1=FFFFFF&f=ifr\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe>";
-  //$('.header-map-search-wrapper').after().html(amazon);
+  var amazon = "<a  href=\"http://www.amazon.co.jp/gp/product/B01IIGUB4M/ref=as_li_tf_il?ie=UTF8&camp=247&creative=1211&creativeASIN=B01IIGUB4M&linkCode=as2&tag=noctushinrsdi-22\"><img border=\"0\" src=\"http://ws-fe.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=B01IIGUB4M&Format=_SL110_&ID=AsinImage&MarketPlace=JP&ServiceVersion=20070822&WS=1&tag=noctushinrsdi-22\" ></a><img src=\"http://ir-jp.amazon-adsystem.com/e/ir?t=noctushinrsdi-22&l=as2&o=9&a=B01IIGUB4M\" width=\"1\" height=\"1\" border=\"0\" alt=\"\" style=\"border:none !important; margin:0px !important;\" />";
+  // $('.btn.btn-default').after().html(amazon);
 
   // ボタン生成
   $('<button/>', {
