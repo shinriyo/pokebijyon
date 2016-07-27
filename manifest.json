@@ -6,9 +6,7 @@
             "128": "icon128.png" },
   "description": "PokéVisionを日本語で使うぜ。",
   "browser_action" : {
-    // アイコン
     "default_icon": "icon19.png",
-    // アイコン押せばポップアップだ
     "default_popup" : "popup.html"
   },
   "permissions": [
@@ -16,7 +14,6 @@
   ],
   "content_scripts": [
       {
-          // 特定のWebサイト
           "matches": [
             "https://pokevision.com/*"
           ],
