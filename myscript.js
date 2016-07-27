@@ -80,10 +80,14 @@ $(function () {
   // プルダウン内
   var $el = $('.dropdown-menu.inner');
 
+  var names = "";
   $.each($el.children(), function(index, value) {
+    names += "\"" + $(value).find(".text").text() + "\",";
     // textクラスを書き換え
-    $(value).find(".text").html("a");
+    $(value).find(".text").text("a");
   });
+
+  console.log(names);
 
   // いいプルダウン.
   var pulldown = $('#issue_assigned_to_id');
