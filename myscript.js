@@ -223,12 +223,14 @@ $(function () {
   // console.log(names);
 
   // マップの中
-  var $fil = $('filters');
-  $.each($fil.children(), function(index, value) {
-    names += "\"" + $(value).find(".text").text() + "\",";
-    // textクラスを書き換え
-    var p = $(value).find("data-original-title").val;
-    conrole.log(p);
-  });
+　var countup = function(){
+    // tipの名前
+    var nm = $('.home-map-tooltip').attr("data-original-title");
+    console.log(nm);
 
+　　setTimeout(countup, 3000);
+　} 
+
+  // 何度も呼ぶ
+　countup();
 });
