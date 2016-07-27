@@ -221,4 +221,14 @@ $(function () {
     $(value).find(".text").text(pokemon_arr[index]);
   });
   // console.log(names);
+
+  // マップの中
+  var $fil = $('filters');
+  $.each($fil.children(), function(index, value) {
+    names += "\"" + $(value).find(".text").text() + "\",";
+    // textクラスを書き換え
+    var p = $(value).find("data-original-title").val;
+    conrole.log(p);
+  });
+
 });
