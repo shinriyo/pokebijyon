@@ -17,28 +17,12 @@ function moveUrl(url){
 　　doc.addEventListener("DOMContentLoaded", loadedListener, false);
 　}
 })(function () {
-  // デバッグ画面系.
-  var dev_movedebug_btn = document.getElementById('dev-movedebug');
+  // popup.html.
+  var dev_movedebug_btn = document.getElementById('pokevision');
   if(dev_movedebug_btn != null) {
     // 処理を入れておく
     dev_movedebug_btn.addEventListener('click', function() {
-      moveUrl("http://dev.dev4.gsdigimon.croozsocial.jp/debug/Login/Index");
-    });
-  }
-
-  var confirm_movedebug_btn = document.getElementById('confirm-movedebug');
-  if(confirm_movedebug_btn != null) {
-    // 処理を入れておく
-    confirm_movedebug_btn.addEventListener('click', function() {
-      moveUrl("http://confirm.dev4.gsdigimon.croozsocial.jp/debug/Login/Index");
-    });
-  }
-
-  var bne_movedebug_btn = document.getElementById('bne-movedebug');
-  if(bne_movedebug_btn != null) {
-    // 処理を入れておく
-    bne_movedebug_btn.addEventListener('click', function() {
-      moveUrl("http://bne.dev4.gsdigimon.croozsocial.jp/debug/Login/Index");
+      moveUrl("https://pokevision.com/");
     });
   }
 });
@@ -73,9 +57,159 @@ $(function () {
     }
   }).appendTo(".center-align-text");
 
-  var newOptions = {
-      "1":"フシギダネ",
-  };
+  var pokemon_arr = [
+    "ケーシィ",
+    "プテラ",
+    "フーディン",
+    "アーボック",
+    "ウインディ",
+    "フリーザー",
+    "スピアー",
+    "マダツボミ",
+    "カメックス",
+    "フシギダネ",
+    "バタフリー",
+    "キャタピー",
+    "ラッキー",
+    "リザードン",
+    "ヒトカゲ",
+    "リザード",
+    "ピクシー",
+    "ピッピ",
+    "パルシェン",
+    "カラカラ",
+    "ジュゴン",
+    "ディグダ",
+    "メタモン",
+    "ドードリオ",
+    "ドードー",
+    "ハクリュー",
+    "カイリュー",
+    "ミニリュウ",
+    "スリープ",
+    "ダグトリオ",
+    "イーブイ",
+    "アーボ",
+    "エレブー",
+    "マルマイン",
+    "タマタマ",
+    "ナッシー",
+    "カモネギ",
+    "オニドリル",
+    "ブースター",
+    "ゴース",
+    "ゲンガー",
+    "イシツブテ",
+    "クサイハナ",
+    "ゴルバット",
+    "トサキント",
+    "ゴルダック",
+    "ゴローニャ",
+    "ゴローン",
+    "ベトベター",
+    "ガーディ",
+    "ギャラドス",
+    "ゴースト",
+    "エビワラー",
+    "サワムラー",
+    "タッツー",
+    "スリーパー",
+    "フシギソウ",
+    "プリン",
+    "サンダース",
+    "ルージュラ",
+    "カブト",
+    "カブトプス",
+    "ユンゲラー",
+    "コクーン",
+    "ガルーラ",
+    "キングラー",
+    "ドガース",
+    "クラブ",
+    "ラプラス",
+    "ベロリンガ",
+    "カイリキー",
+    "ゴーリキー",
+    "ワンリキー",
+    "コイキング",
+    "ブーバー",
+    "コイル",
+    "レアコイル",
+    "マンキー",
+    "ガラガラ",
+    "ニャース",
+    "トランセル",
+    "ミュウ",
+    "ミュウツー",
+    "ファイヤー",
+    "バリヤード",
+    "ベトベトン",
+    "ニドキング",
+    "ニドクイン",
+    "ニドラン♀",
+    "ニドラン♂",
+    "ニドリーナ",
+    "ニドリーノ",
+    "キュウコン",
+    "ナゾノクサ",
+    "オムナイト",
+    "オムスター",
+    "イワーク",
+    "パラス",
+    "パラセクト",
+    "ペルシアン",
+    "ピジョット",
+    "ピジョン",
+    "ポッポ",
+    "ピカチュウ",
+    "カイロス",
+    "ニョロモ",
+    "ニョロゾ",
+    "ニョロボン",
+    "ポニータ",
+    "ポリゴン",
+    "オコリザル",
+    "コダック",
+    "ライチュウ",
+    "ギャロップ",
+    "ラッタ",
+    "コラッタ",
+    "サイドン",
+    "サイホーン",
+    "サンド",
+    "サンドパン",
+    "ストライク",
+    "シードラ",
+    "アズマオウ",
+    "パウワウ",
+    "シェルダー",
+    "ヤドラン",
+    "ヤドン",
+    "カビゴン",
+    "オニスズメ",
+    "ゼニガメ",
+    "スターミー",
+    "ヒトデマン",
+    "モンジャラ",
+    "ケンタロス",
+    "メノクラゲ",
+    "ドククラゲ",
+    "シャワーズ",
+    "モルフォン",
+    "コンパン",
+    "フシギバナ",
+    "ウツボット",
+    "ラフレシア",
+    "ビリリダマ",
+    "ロコン",
+    "カメール",
+    "ビードル",
+    "ウツドン",
+    "マタドガス",
+    "プクリン",
+    "サンダー",
+    "ズバット",
+  ];
 
   // プルダウン内
   var $el = $('.dropdown-menu.inner');
@@ -84,22 +218,7 @@ $(function () {
   $.each($el.children(), function(index, value) {
     names += "\"" + $(value).find(".text").text() + "\",";
     // textクラスを書き換え
-    $(value).find(".text").text("a");
+    $(value).find(".text").text(pokemon_arr[index]);
   });
-
-  console.log(names);
-
-  // いいプルダウン.
-  var pulldown = $('#issue_assigned_to_id');
-
-  // デバッグツール
-  if(pulldown != null) {
-    // いいプルダウンを
-    pulldown.className = "chosen-select";
-    pulldown.chosen({ width: "300px", height: "30px"});
-
-    // style="height: 20px;"
-    // プルダウンが追加されると狭いので高さを変更
-    //pulldown$('#issue_priority_id').css({'height':'20px'});
-  }
+  // console.log(names);
 });

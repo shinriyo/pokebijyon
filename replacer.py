@@ -157,6 +157,4 @@ arr = ["Abra","Aerodactyl","Alakazam","Arbok","Arcanine","Articuno","Beedrill","
 mydict_inv = {v:k for k, v in dic.items()}
 
 for item in arr:
-    print(mydict_inv[item])
-    
-
+    print("\"" + mydict_inv[item] + "\",")
