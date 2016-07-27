@@ -211,24 +211,71 @@ $(function () {
     "ズバット",
   ];
 
+  // 辞書
+  var poke_dic= {};
+
   // プルダウン内
   var $el = $('.dropdown-menu.inner');
 
-  var names = "";
+  // ツールのため
+  //var names = "";
   $.each($el.children(), function(index, value) {
-    names += "\"" + $(value).find(".text").text() + "\",";
+    // ツールのため
+    // names += "\"" + $(value).find(".text").text() + "\",";
+    var en_name = $(value).find(".text").text();
+    var jp_name = pokemon_arr[index];
     // textクラスを書き換え
     $(value).find(".text").text(pokemon_arr[index]);
+    // ついでに辞書作り
+    poke_dic[en_name] = jp_name;
   });
   // console.log(names);
+
+  var nm;
+  var poke_en;
+  var poke_jp;
 
   // マップの中
 　var countup = function(){
     // tipの名前
-    var nm = $('.home-map-tooltip').attr("data-original-title");
-    console.log(nm);
+    var tip = $('.home-map-tooltip');
+    var tmp = tip.attr("data-original-title");
 
-　　setTimeout(countup, 3000);
+    // <strong>Pidgey</strong><small>Despawns in 09:40
+    if (typeof tmp !== "undefined") {
+      var match = tmp.match(/<strong>(.*)<\/strong>/);
+      if (typeof match[1] != "undefined") {
+
+        var tmp_jp = poke_dic[match[1]];
+        if (typeof tmp_jp != "undefined") {
+          // 日本名ポケモン名
+          // console.log(poke_jp);
+          // 英語名ポケモン名仮（日本語になってることも）
+          poke_en = match[1];
+          poke_jp = poke_dic[poke_en];
+        }
+      }
+    }
+
+    if (typeof poke_en !== "undefined" &&
+        typeof poke_jp !== "undefined"
+    ) {
+      var nm = $('.home-map-tooltip').attr("data-original-title");
+      var replace_str = nm.replace(poke_en, poke_jp);
+      $('.home-map-tooltip').attr("data-original-title", replace_str);
+
+      // tip
+      var tip = $('.tooltip-inner');
+      if (tip !== "undefined") {
+        var re = function() {
+          tip.html(replace_str);
+        }
+        re();
+      　setTimeout(re, 100);
+      }
+    }
+
+　　setTimeout(countup, 300);
 　} 
 
   // 何度も呼ぶ
